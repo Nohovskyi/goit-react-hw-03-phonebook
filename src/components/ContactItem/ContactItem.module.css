@@ -1,0 +1,17 @@
+.contact__list__contact {
+  max-width: 300px;
+}
+
+.contact__btn {
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.contact__btn:hover,
+.contact__btn:focus {
+  background-color: #ff1515;
+  color: white;
+}
