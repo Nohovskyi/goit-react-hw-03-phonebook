@@ -7,14 +7,26 @@ import css from '././App.module.css';
 
 export class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const contats = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contats);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      console.log(prevState);
+      console.log(this.state);
+
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
 
   addContact = ({ name, number }) => {
     const newContact = {
@@ -54,6 +66,7 @@ export class App extends Component {
         />
         <h2 className={css.contact__title}>Contacts</h2>
         <Filter changeFilter={this.changeFilter} filter={filter} />
+        {contacts.length === 0 && <h3>The list of contacts is empty.</h3>}
         <ContactList
           contacts={filteredContacts}
           deleteContact={this.deleteContact}

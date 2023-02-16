@@ -2,30 +2,12 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  /* list-style: none; */
-  /* padding-left: 10px; */
+  padding-left: 10px;
 }
 
+/* Пропадає точка для li при додавані їй  display: flex*/
 .contact__list__item {
   max-width: 350px;
   display: flex;
   justify-content: space-between;
-}
-
-.contact__list__contacts {
-  max-width: 300px;
-}
-
-.contact__btn {
-  padding: 5px;
-  width: 100px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.contact__btn:hover,
-.contact__btn:focus {
-  background-color: #ff1515;
-  color: white;
 }

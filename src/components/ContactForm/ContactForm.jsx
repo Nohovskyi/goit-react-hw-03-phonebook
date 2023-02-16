@@ -33,7 +33,7 @@ export class ContactForm extends Component {
     }
 
     this.props.onSubmit(this.state);
-    console.log(this.props);
+
     this.setState({
       name: '',
       number: '',
